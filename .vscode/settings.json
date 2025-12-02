@@ -1,0 +1,16 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": ["/appdata/pokedex/*.json"],
+            "url": "./pokemon-cli/appdata/schema/pokedex.schema.json"
+        },
+        {
+            "fileMatch": ["/appdata/movedex/*.json"],
+            "url": "./pokemon-cli/appdata/schema/move.schema.json"
+        },
+        {
+            "fileMatch": ["/appdata/type_chart.json"],
+            "url": "./pokemon-cli/appdata/schema/type_chart.schema.json"
+        }
+    ]
+}

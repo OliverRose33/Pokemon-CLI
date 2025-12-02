@@ -1,0 +1,13 @@
+{
+    "pokedex_id": 4,
+    "name": "Charmander",
+    "type": ["fire"],
+    "base_stats": {
+        "hp": 39,
+        "attack": 52,
+        "defense": 43,
+        "special_attack": 60,
+        "special_defense": 50,
+        "speed": 65
+    }
+}

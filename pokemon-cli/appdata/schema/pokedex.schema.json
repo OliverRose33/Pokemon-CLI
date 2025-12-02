@@ -1,0 +1,85 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Pokemon",
+    "type": "object",
+    "properties": {
+        "pokedex_id": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "array",
+            "items": {
+                "type": "string",
+                "enum": [
+                    "normal",
+                    "fire",
+                    "water",
+                    "grass",
+                    "electric",
+                    "ice",
+                    "fighting",
+                    "poison",
+                    "ground",
+                    "flying",
+                    "psychic",
+                    "bug",
+                    "rock",
+                    "ghost",
+                    "dragon",
+                    "dark",
+                    "steel",
+                    "fairy"
+                ]
+            },
+            "minItems": 1,
+            "maxItems": 2,
+            "uniqueItems": true
+        },
+        "base_stats": {
+            "type": "object",
+            "properties": {
+                "hp": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "attack": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "defense": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "special_attack": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "special_defense": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                },
+                "speed": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                }
+            },
+            "required": [
+                "hp",
+                "attack",
+                "defense",
+                "special_attack",
+                "special_defense",
+                "speed"
+            ]
+        }
+    },
+    "required": [
+        "pokedex_id",
+        "name",
+        "type",
+        "base_stats"
+    ]
+}

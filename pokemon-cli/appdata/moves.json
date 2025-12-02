@@ -1,0 +1,22 @@
+[
+    {
+        "move_id": 1,
+        "name": "Pound",
+        "type": "normal",
+        "category": "physical",
+        "description": "The target is physically pounded with a long tail, a foreleg, or the like.",
+        "max_pp": 35,
+        "power": 40,
+        "accuracy": 100
+    },
+    {
+        "move_id": 2,
+        "name": "Karate Chop",
+        "type": "fighting",
+        "category": "physical",
+        "description": "The target is attacked with a sharp chop. Critical hits land more easily.",
+        "max_pp": 25,
+        "power": 50,
+        "accuracy": 100
+    }
+]

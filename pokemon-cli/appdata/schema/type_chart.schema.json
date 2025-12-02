@@ -1,0 +1,61 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Type Chart",
+    "description": "TODO: Nested validation doesn't actually work :(",
+    "type": "object",
+    "propertyNames": {
+        "$ref": "#/$defs/type_",
+        "type": "object",
+        "properties": {
+            "propertyNames": {
+                "$ref": "#/$defs/type_"
+            }
+        }
+    },
+    "$defs": {
+        "type_": {
+            "type": "string",
+            "enum": [
+                "normal",
+                "fire",
+                "water",
+                "grass",
+                "electric",
+                "ice",
+                "fighting",
+                "poison",
+                "ground",
+                "flying",
+                "psychic",
+                "bug",
+                "rock",
+                "ghost",
+                "dragon",
+                "dark",
+                "steel",
+                "fairy"
+            ]
+        },
+        "effectiveness": {
+            "type": "number",
+            "enum": [
+                0,
+                0.5,
+                2
+            ]
+        },
+        "matchup": {
+            "allOf": [
+                {
+                    "propertyNames": {
+                        "$ref": "#/$defs/type_"
+                    },
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/effectiveness"
+                    }
+                }
+            ]
+        }
+    }
+}

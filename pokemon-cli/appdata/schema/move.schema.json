@@ -1,0 +1,59 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Move",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "move_id": {
+                "type": "integer"
+            },
+            "name": {
+                "type": "string"
+            },
+            "type": {
+                "type": "string"
+            },
+            "category": {
+                "$ref": "#/$defs/category"
+            },
+            "description": {
+                "type": "string"
+            },
+            "max_pp": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+            },
+            "power": {
+                "type": "integer",
+                "minimum": 0
+            },
+            "accuracy": {
+                "$ref": "#/$defs/percentage"
+            }
+        },
+        "required": [
+            "move_id",
+            "name",
+            "type",
+            "category",
+            "description",
+            "power",
+            "max_pp"
+        ]
+    },
+    "$defs": {
+        "category": {
+            "enum": [
+                "physical",
+                "special",
+                "status"
+            ]
+        },
+        "percentage": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 100
+        }
+    }
+}
