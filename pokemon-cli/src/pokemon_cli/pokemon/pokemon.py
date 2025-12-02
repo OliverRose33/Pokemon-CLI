@@ -38,12 +38,12 @@ class BaseStats(object):
 
     def __str__(self) -> str:
         return (
-            f"HP: {self.hp}, "
-            f"Atk: {self.attack}, "
-            f"Def: {self.defense}, "
-            f"SpA: {self.special_attack}, "
-            f"SpD: {self.special_defense}, "
-            f"Spe: {self.speed} "
+            f"HP: {self.hp:>3}, "
+            f"Atk: {self.attack:>3}, "
+            f"Def: {self.defense:>3}, "
+            f"SpA: {self.special_attack:>3}, "
+            f"SpD: {self.special_defense:>3}, "
+            f"Spe: {self.speed:>3} "
             f"(Total: {self.total})"
         )
 
@@ -96,3 +96,8 @@ class Pokedex(object):
                 msg = f"Pokemon with ID '{name_or_id}' not found in Pokedex."
                 raise KeyError(msg)
         return pokemon.model_copy(deep=True)
+
+    def __str__(self) -> str:
+        return "\n".join(
+            [str(pokemon) for pokemon in self._pokedex_id.values()]
+        )

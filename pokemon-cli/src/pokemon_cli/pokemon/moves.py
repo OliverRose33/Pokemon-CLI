@@ -2,8 +2,6 @@
 This module contains code for describing moves.
 """
 
-from __future__ import annotations
-
 from enum import StrEnum, auto
 from pathlib import Path
 from typing import Optional, Self
@@ -17,17 +15,71 @@ _MOVEDEX_PATH = path.APPDATA / "moves.json"
 
 
 class Category(StrEnum):
+    """Categories of moves."""
+
     PHYSICAL = auto()
     SPECIAL = auto()
     STATUS = auto()
 
 
 class Target(StrEnum):
+    """Target of moves."""
+
     SELECTED = auto()
     SELF = auto()
 
 
 class Move(BaseModel):
+    """
+    A move which can be used by a Pokemon.
+
+    Attributes:
+        name (str):
+            The name of the move.
+        type\\_ (Type):
+            The type of the move.
+        category (Category):
+            The category of the move.
+        description (str):#
+            A description of the move.
+        max_pp (int):
+            The maximum number of times the move can be used.
+        power (int):
+            The base damage of the move.
+        accuracy (Optional[int]):
+            The accuracy of the move, between 0 and 100.
+            A move with no accuracy is guaranteed to hit.
+        target (Target):
+            The target of the move.
+        priority (int):
+            The priority of the move.
+        healing (int):
+            The amount of healing the move does.
+        drain (int):
+            The amount of health drained by the move.
+        flinch_chance (float):
+            The chance of the move causing a flinch.
+        crit_rate (int):
+            The likelihood of a critical hit.
+            0 is the base chance, while 1 is an increased likelihood.
+        effect_chance (float):
+            The chance of a secondary effect occurring.
+        stat_chance (float)
+             The chance of a stat change.
+        ailment (Optional[str]):
+            An ailment which the move can cause.
+        ailment_chance (int):
+            The chance of the move causing an ailment.
+        max_hits (Optional[int]):
+            The maximum number of hits for multihit moves.
+        min_hits (Optional[int]):
+            The minimum number of hits for multihit moves.
+        max_turns (Optional[int]):
+            The maximum number of turns for multiturn moves.
+        min_turns (Optional[int]):
+            The minimum number of turns for multiturn moves.
+    """
+
     name: str
     type_: Type = Field(alias="type")
     category: Category
@@ -35,7 +87,7 @@ class Move(BaseModel):
     max_pp: int = Field(gt=0)
     power: int = Field(gt=0)
     accuracy: Optional[int] = Field(gt=0, le=100)
-    target: str = Target.SELECTED
+    target: Target = Target.SELECTED
     priority: int = 0
     drain: int = 0
     healing: int = 0
